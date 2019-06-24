@@ -1,0 +1,13 @@
+
+FBI versus arrest:
+
+INSERT OVERWRITE DIRECTORY '/casesResolved' select FBI_Code, Count(Arrest) from crime
+where Arrest == true                     
+group by FBI_Code;
+
+domestic violence
+
+INSERT OVERWRITE DIRECTORY '/domestic' select Primary_Type, count(Primary_Type) from crime       
+where Arrest == false                                                                          
+and Domestic == true                                                                           
+group by Primary_Type; 
